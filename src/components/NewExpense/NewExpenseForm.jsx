@@ -65,6 +65,7 @@ function NewExpenseForm() {
               ref={amountRef}
               type="number"
               className="form-input"
+              min='0.01' step='0.01'
             />
           </div>
           <div className="div-form-date">

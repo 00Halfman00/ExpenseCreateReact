@@ -20,6 +20,7 @@
 
 .expense-item__title,
 .expense-item__amount {
+  width: 100px;
   padding: 0.25rem 1rem;
   margin: 1rem;
 }

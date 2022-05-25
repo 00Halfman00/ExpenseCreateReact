@@ -11,6 +11,6 @@
   margin: 1rem;
 }
 
-.expense-item__year {
+.expense-item__year, .expense-item__month {
   font-size: large;
 }

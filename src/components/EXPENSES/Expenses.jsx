@@ -7,7 +7,11 @@ import NewExpense from '../NewExpense/NewExpense';
 import { expensesContext } from '../../App';
 
 function Expenses() {
-  const { expenses, setExpense } = useContext(expensesContext);
+  const { expenses, setExpenses } = useContext(expensesContext);
+  function onEditTitle(arr){
+    setExpenses([...arr]);
+    console.log('arr: ', arr)
+  }
 
   return (
     <Card className="expenses">
@@ -16,7 +20,7 @@ function Expenses() {
         {expenses.map((expense, idx) => {
           return (
             <li key={expense.id}>
-              <ExpenseItem expense={expenses[idx]} />
+              <ExpenseItem onEditTitle={onEditTitle} expense={expenses[idx]} />
             </li>
           );
         })}
