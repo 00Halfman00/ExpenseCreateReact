@@ -1,14 +1,16 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import { useForm } from 'react-hook-form';
 import './NewExpenseForm.css';
+import { expensesContext } from '../../App';
 
 function NewExpenseForm() {
+  const { expenses, setExpenses } = useContext(expensesContext);
   const { register, handleSubmit } = useForm();
+
   const onSubmit = (data) => {
     data.title = titleRef.current.value;
     data.amount = amountRef.current.value;
     data.date = dateRef.current.value;
-    //console.log('data: ', data);
 
     setNewExpenses({
       id: Math.floor(Math.random() * 1000),
@@ -16,11 +18,21 @@ function NewExpenseForm() {
       amount: amountRef.current.value,
       date: dateRef.current.value,
     });
-    console.log('newExpenses state: ', newExpenses);
+
+    expenses[expenses.length] = {
+      id: Math.floor(Math.random() * 1000),
+      title: titleRef.current.value,
+      amount: amountRef.current.value,
+      date: new Date(dateRef.current.value),
+    };
+
+    setExpenses([...expenses]);
+
     titleRef.current.value = '';
     amountRef.current.value = null;
     dateRef.current.value = null;
   };
+
   const [newExpenses, setNewExpenses] = useState({});
   const titleRef = useRef();
   const amountRef = useRef();
@@ -31,8 +43,9 @@ function NewExpenseForm() {
       <h2>New Expense</h2>
       <p>Title: {newExpenses.title}</p>
       <p>Id: {newExpenses.id}</p>
-      <p>amount: {newExpenses.amount}</p>
+      <p>amount: ${newExpenses.amount}</p>
       <p>date: {newExpenses.date}</p>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="div-form-container">
           <div className="div-form-title">
@@ -71,7 +84,3 @@ function NewExpenseForm() {
 }
 
 export default NewExpenseForm;
-
-//need Flex in css file
-// time for a break
-// that was a pain lol

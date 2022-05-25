@@ -1,5 +1,7 @@
-
+import React, { useState, createContext } from 'react';
 import Expenses from './components/EXPENSES/Expenses';
+
+export const expensesContext = createContext();
 
 const expensesArr = [
   {
@@ -23,14 +25,14 @@ const expensesArr = [
   },
 ];
 
-//try to initiate state at the top component App and pass it down to child components
-//const [expenses, setExpenses] = useState(expensesArr);
-//guess not. lol
-
 function App() {
+  const [expenses, setExpenses] = useState(expensesArr);
+
   return (
     <div>
-      <Expenses expenses={expensesArr} />
+      <expensesContext.Provider value={{ expenses, setExpenses }}>
+        <Expenses />
+      </expensesContext.Provider>
     </div>
   );
 }

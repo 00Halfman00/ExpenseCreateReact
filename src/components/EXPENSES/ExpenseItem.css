@@ -1,5 +1,6 @@
 .expense-item {
   display: flex;
+  min-width: 600px;
   align-items: center;
   background-color: cornsilk;
   justify-content: space-between;
@@ -7,8 +8,10 @@
 }
 
 .expense-item__amount {
+  position: sticky;
   display: flex;
   width: 70px;
+  min-width: 70px;
   justify-content: center;
   background-color: lightgrey;
   border: solid white 2px;

@@ -4,6 +4,7 @@
   justify-content: space-between;
   height: 8rem;
   width: 50rem;
+  min-width: 600px;
   max-width: 99%;
   align-items: center;
   background-color: cornsilk;
@@ -15,16 +16,18 @@
 .form-input {
   display: flex;
   width: 10rem;
-  margin: 0 1rem 1rem 1rem;
+  margin: 0 2rem 1rem 2rem;
 }
 
 .form-button {
-  margin: 1rem;
+  margin: 1rem 2rem 1rem 2rem;
   width: 10.5rem;
 }
 
 label {
-  margin-left: 1rem;
+  display: flex;
+  justify-content: center;
+  margin: 0 2rem 0 2rem;
   margin-bottom: 0;
 }
 

@@ -1,16 +1,19 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext } from 'react';
 import ExpenseItemDate from './ExpenseItemDate';
 import './ExpenseItem.css';
 import Card from '../UI/Card';
-//console.log('React: ', React);
+import {expensesContext} from '../../App';
 
 function ExpenseItem(props) {
-  //console.log(typeof props.expense)
+  console.log(props)
+  const {expenses, setExpenses} = useContext(expensesContext);
   const [expenseItem, setExpenseItem] = useState(props.expense);
   const inputRef = useRef();
 
   function clickHandler(ev) {
-    setExpenseItem({ ...expenseItem, title: inputRef.current.value });
+    setExpenseItem(() => {
+      return { ...expenseItem, title: inputRef.current.value }
+    });
     inputRef.current.value = '';
   }
 
@@ -27,5 +30,3 @@ function ExpenseItem(props) {
 
 export default ExpenseItem;
 
-
-// onChange ? food lol
