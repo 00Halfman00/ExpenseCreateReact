@@ -11,27 +11,28 @@ function NewExpenseForm() {
     //console.log('data: ', data);
 
     setNewExpenses({
+      id: Math.floor(Math.random() * 1000),
       title: titleRef.current.value,
       amount: amountRef.current.value,
       date: dateRef.current.value,
     });
-    console.log('newExpenses state: ', newExpenses)
+    console.log('newExpenses state: ', newExpenses);
     titleRef.current.value = '';
     amountRef.current.value = null;
     dateRef.current.value = null;
   };
-  const [newExpenses, setNewExpenses] = useState({
-    id: Math.floor(Math.random() * 1000),
-    title: ' ',
-    amount: 0,
-    date: new Date(),
-  });
+  const [newExpenses, setNewExpenses] = useState({});
   const titleRef = useRef();
   const amountRef = useRef();
   const dateRef = useRef();
 
   return (
     <div>
+      <h2>New Expense</h2>
+      <p>Title: {newExpenses.title}</p>
+      <p>Id: {newExpenses.id}</p>
+      <p>amount: {newExpenses.amount}</p>
+      <p>date: {newExpenses.date}</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="div-form-container">
           <div className="div-form-title">
