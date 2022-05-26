@@ -5,17 +5,25 @@ import './Expenses.css';
 import '../UI/Card.css';
 import NewExpense from '../NewExpense/NewExpense';
 import { expensesContext } from '../../App';
+import ExpenseItemFilter from './ExpenseItemFilter';
 
 function Expenses() {
+  const [year, setYear] = useState(0);
   const { expenses, setExpenses } = useContext(expensesContext);
   function onEditTitle(arr){
     setExpenses([...arr]);
-    console.log('arr: ', arr)
+  }
+
+  function getYearHandler(year){
+    setYear(year)
+    console.log(year)
   }
 
   return (
-    <Card className="expenses">
+    <div>
+      <Card className="expenses">
       <NewExpense />
+      <ExpenseItemFilter getYear={getYearHandler} />
       <div>
         {expenses.map((expense, idx) => {
           return (
@@ -26,6 +34,7 @@ function Expenses() {
         })}
       </div>
     </Card>
+    </div>
   );
 }
 

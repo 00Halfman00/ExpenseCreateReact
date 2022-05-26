@@ -40,12 +40,6 @@ function NewExpenseForm() {
 
   return (
     <div>
-      <h2>Newest Expense</h2>
-      <p>Title: {newExpenses.title}</p>
-      <p>Id: {newExpenses.id}</p>
-      <p>amount: ${newExpenses.amount}</p>
-      <p>date: {newExpenses.date}</p>
-
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="div-form-container">
           <div className="div-form-title">

@@ -27,7 +27,7 @@ const expensesArr = [
 
 function App() {
   const [expenses, setExpenses] = useState(expensesArr);
-
+  console.log('In App.jsx: ', expenses)
   return (
     <div>
       <expensesContext.Provider value={{ expenses, setExpenses }}>

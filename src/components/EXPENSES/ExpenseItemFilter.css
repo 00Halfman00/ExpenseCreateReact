@@ -1,0 +1,22 @@
+.expense-filter-div {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  border-radius: 12px;
+  box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
+  min-width: 650px;
+  padding: 1rem;
+  background-color: cornsilk;
+  margin: 1rem auto;
+  max-width: 97%;
+}
+
+label, select {
+  font-size: large;
+  margin: 1rem 2rem 1rem 1rem;
+}
+
+.filter-card {
+  display: flex;
+  justify-content: center;
+}
