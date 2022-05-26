@@ -40,7 +40,7 @@ function NewExpenseForm() {
 
   return (
     <div>
-      <h2>New Expense</h2>
+      <h2>Newest Expense</h2>
       <p>Title: {newExpenses.title}</p>
       <p>Id: {newExpenses.id}</p>
       <p>amount: ${newExpenses.amount}</p>
@@ -65,7 +65,8 @@ function NewExpenseForm() {
               ref={amountRef}
               type="number"
               className="form-input"
-              min='0.01' step='0.01'
+              min="0.01"
+              step="0.01"
             />
           </div>
           <div className="div-form-date">
@@ -77,7 +78,9 @@ function NewExpenseForm() {
               className="form-input"
             />
           </div>
-          <input className="form-button" type="submit" />
+          <div className='div-form-button'>
+            <input className="form-button" type="submit" />
+          </div>
         </div>
       </form>
     </div>

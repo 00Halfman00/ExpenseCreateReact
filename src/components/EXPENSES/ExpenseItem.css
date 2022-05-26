@@ -20,11 +20,17 @@
 
 .expense-item__title,
 .expense-item__amount {
+  font-size: large;
   width: 100px;
   padding: 0.25rem 1rem;
   margin: 1rem;
 }
 
-.expense-item__title {
+button, input {
+  font-size: medium;
+}
+
+.expense-item__month,
+.expense-item__year {
   font-size: large;
 }

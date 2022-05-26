@@ -2,32 +2,29 @@ import React, { useState, useRef, useContext } from 'react';
 import ExpenseItemDate from './ExpenseItemDate';
 import './ExpenseItem.css';
 import Card from '../UI/Card';
-import {expensesContext} from '../../App';
+import { expensesContext } from '../../App';
 
 function ExpenseItem(props) {
-  //console.log(props)
-  const {expenses, setExpenses} = useContext(expensesContext);
-  //console.log('expenses: ', expenses)
+  const { expenses, setExpenses } = useContext(expensesContext);
   const [expenseItem, setExpenseItem] = useState(props.expense);
   const inputRef = useRef();
 
   function clickHandler(ev) {
-
-    for(let i = 0; i < expenses.length; i++){
-      if(expenses[i].id === expenseItem.id){
-        //console.log(expenseItem, inputRef.current.value);
-        expenses[i].title = inputRef.current.value;
+    if(inputRef.current.value){
+      for (let i = 0; i < expenses.length; i++) {
+        if (expenses[i].id === expenseItem.id) {
+          expenses[i].title = inputRef.current.value;
+        }
+        props.onEditTitle(expenses);
       }
-      console.log(expenses)
-      props.onEditTitle(expenses);
+      const name = inputRef.current.value;
+      setExpenseItem(() => {
+        return { ...expenseItem, title: name };
+      });
+      inputRef.current.value = '';
     }
-    const name = inputRef.current.value;
-    setExpenseItem(() => {
-      return { ...expenseItem, title: name }
-    });
-    inputRef.current.value = '';
   }
-  console.log(expenseItem)
+
   return (
     <Card className="expense-item">
       <ExpenseItemDate date={expenseItem.date} />
@@ -40,4 +37,3 @@ function ExpenseItem(props) {
 }
 
 export default ExpenseItem;
-
