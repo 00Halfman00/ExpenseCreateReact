@@ -19,12 +19,18 @@ function NewExpenseForm() {
       date: dateRef.current.value,
     });
 
-    expenses[expenses.length] = {
-      id: Math.floor(Math.random() * 1000),
-      title: titleRef.current.value,
-      amount: amountRef.current.value,
-      date: new Date(dateRef.current.value),
-    };
+    if (
+      titleRef.current.value &&
+      amountRef.current.value &&
+      dateRef.current.value
+    ) {
+      expenses[expenses.length] = {
+        id: `${Math.floor(Math.random() * 1000)}`,
+        title: titleRef.current.value,
+        amount: +amountRef.current.value,
+        date: new Date(dateRef.current.value),
+      };
+    }
 
     setExpenses([...expenses]);
 
@@ -43,7 +49,7 @@ function NewExpenseForm() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="div-form-container">
           <div className="div-form-title">
-            <label>Title</label>
+            <label className="form-title-label">Title</label>
             <input
               {...register('title')}
               ref={titleRef}
@@ -53,7 +59,7 @@ function NewExpenseForm() {
             />
           </div>
           <div className="div-form-amount">
-            <label>Amount</label>
+            <label className="form-amount-label">Amount</label>
             <input
               {...register('amount')}
               ref={amountRef}
@@ -64,7 +70,7 @@ function NewExpenseForm() {
             />
           </div>
           <div className="div-form-date">
-            <label>Date</label>
+            <label className="form-date-label">Date</label>
             <input
               {...register('date')}
               ref={dateRef}
@@ -72,7 +78,7 @@ function NewExpenseForm() {
               className="form-input"
             />
           </div>
-          <div className='div-form-button'>
+          <div className="div-form-button">
             <input className="form-button" type="submit" />
           </div>
         </div>

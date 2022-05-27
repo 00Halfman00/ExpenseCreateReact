@@ -23,7 +23,7 @@ function Expenses() {
     <div>
       <Card className="expenses">
       <NewExpense />
-      <ExpenseItemFilter getYear={getYearHandler} />
+      <ExpenseItemFilter getYear = {getYearHandler} year={year} />
       <div>
         {expenses.map((expense, idx) => {
           return (

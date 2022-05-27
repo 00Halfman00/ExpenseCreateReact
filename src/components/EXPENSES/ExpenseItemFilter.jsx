@@ -1,13 +1,14 @@
 import React, { useState, createContext } from 'react';
 import './ExpenseItemFilter.css';
+import ExpenseYear from '../EXPENSEYEAR/ExpenseYear';
 
 export const yearContext = createContext();
 
 
 function ExpenseItemFilter(props) {
-
+  let year;
   function yearHandler(ev) {
-    props.getYear(ev.target.value);
+    year = props.getYear(ev.target.value);
   }
 
   return (
@@ -22,6 +23,7 @@ function ExpenseItemFilter(props) {
           <option value="2022">2022</option>
         </select>
       </div>
+      <ExpenseYear year={props.year}/>
     </div>
   );
 }

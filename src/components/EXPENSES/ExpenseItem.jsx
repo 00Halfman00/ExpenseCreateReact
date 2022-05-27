@@ -28,8 +28,10 @@ function ExpenseItem(props) {
   return (
     <Card className="expense-item">
       <ExpenseItemDate date={expenseItem.date} />
-      <div className="expense-item__title">{expenseItem.title}</div>
-      <input ref={inputRef}></input>
+      <div className="expense-item__title">
+        <p className='expense-item-p'>{expenseItem.title}</p>
+        </div>
+      <input ref={inputRef} className="title-input"></input>
       <button onClick={clickHandler}>change</button>
       <div className="expense-item__amount">${expenseItem.amount}</div>
     </Card>
