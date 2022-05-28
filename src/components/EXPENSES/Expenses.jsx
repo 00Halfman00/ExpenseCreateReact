@@ -8,8 +8,9 @@ import { expensesContext } from '../../App';
 import ExpenseItemFilter from './ExpenseItemFilter';
 
 function Expenses() {
-  const [year, setYear] = useState(0);
+  const [year, setYear] = useState(2021);
   const { expenses, setExpenses } = useContext(expensesContext);
+
   function onEditTitle(arr){
     setExpenses([...arr]);
   }
@@ -23,7 +24,7 @@ function Expenses() {
     <div>
       <Card className="expenses">
       <NewExpense />
-      <ExpenseItemFilter getYear = {getYearHandler} year={year} />
+      <ExpenseItemFilter select={year} getYear = {getYearHandler} year={year} />
       <div>
         {expenses.map((expense, idx) => {
           return (

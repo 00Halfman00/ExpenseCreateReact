@@ -4,13 +4,28 @@
   align-items: center;
   width: 80px;
   min-width: 80px;
-  background-color: lightgrey;
-  border: solid white 3px;
   border-radius: 10px;
   padding: 0.25rem 1rem;
   margin: 1rem;
+  box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
 }
 
 .expense-item__year, .expense-item__month {
   font-size: large;
+}
+
+.December, .January, .February {
+  background-color: powderblue;
+}
+
+.March, .April, .May {
+  background: lightgreen;
+}
+
+.June, .July, .August {
+  background-color: coral;
+}
+
+.September, .October, .November {
+  background-color: goldenrod;
 }

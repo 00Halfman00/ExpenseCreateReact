@@ -36,7 +36,7 @@ function ExpenseYear(props) {
     setMonths(obj);
   }
 
-  console.log(months);
+  //console.log(months);
 
   return (
     <div>
@@ -51,10 +51,10 @@ function ExpenseYear(props) {
             {months['1']}
             <p>Jan</p>
           </div>
-          <di className="winter">
+          <div className="winter">
             {months['2']}
             <p>Feb</p>
-          </di>
+          </div>
           <div className="spring">
             {months['3']}
             <p>Mar</p>

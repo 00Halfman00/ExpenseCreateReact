@@ -6,6 +6,7 @@ export const yearContext = createContext();
 
 
 function ExpenseItemFilter(props) {
+  console.log(props.select)
   let year;
   function yearHandler(ev) {
     year = props.getYear(ev.target.value);
@@ -14,9 +15,9 @@ function ExpenseItemFilter(props) {
   return (
     <div className="expense-filter-container">
       <div className="expense-filter-div">
-        <label>Filter Expenses By Year</label>
-        <select onChange={yearHandler} className="filter-select">
-          <option value="">choose a year</option>
+        <label className='expense-filter-label'>Filter Expenses By Year</label>
+        <select  onChange={yearHandler} className="filter-select">
+          <option>choose year</option>
           <option value="2019">2019</option>
           <option value="2020">2020</option>
           <option value="2021">2021</option>

@@ -32,7 +32,7 @@ function ExpenseItem(props) {
         <p className='expense-item-p'>{expenseItem.title}</p>
         </div>
       <input ref={inputRef} className="title-input"></input>
-      <button onClick={clickHandler}>change</button>
+      <button className='expense-item-button' onClick={clickHandler}>rename</button>
       <div className="expense-item__amount">${expenseItem.amount}</div>
     </Card>
   );

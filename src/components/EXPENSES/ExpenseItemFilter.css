@@ -5,7 +5,7 @@
   border-radius: 12px;
   box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
   padding: .5rem;
-  background-color: cornsilk;
+  background-color: white;
   margin: 1rem auto;
   max-width: 97%;
 }
@@ -26,6 +26,16 @@ label, select {
   box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
   height: 100px;
   margin: 0 .25rem;
+}
+
+.expense-filter-label {
+  background-color: lightgray;
+  padding: .5rem 1.5rem;
+  border-radius: 8px;
+}
+
+.filter-select {
+  border-radius: 6px;
 }
 
 @media screen and (max-width: 700px) {

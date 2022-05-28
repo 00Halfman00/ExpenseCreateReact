@@ -1,5 +1,6 @@
 import React, { useState, createContext } from 'react';
 import Expenses from './components/EXPENSES/Expenses';
+import './App.css';
 
 export const expensesContext = createContext();
 
@@ -10,7 +11,7 @@ const expensesArr = [
     amount: 94.12,
     date: new Date(2020, 7, 14),
   },
-  { id: 'e2', title: 'New TV', amount: 799.49, date: new Date(2021, 2, 12) },
+  { id: 'e2', title: '4K TV', amount: 799.49, date: new Date(2021, 2, 12) },
   {
     id: 'e3',
     title: 'Car Insurance',
@@ -19,8 +20,8 @@ const expensesArr = [
   },
   {
     id: 'e4',
-    title: 'New Desk (Wooden)',
-    amount: 450,
+    title: 'Desk (Wooden)',
+    amount: 450.01,
     date: new Date(2021, 5, 12),
   },
 ];
@@ -30,6 +31,9 @@ function App() {
   console.log('In App.jsx: ', expenses)
   return (
     <div>
+      <div className="title-div">
+        <h1>Expense Tracker</h1>
+      </div>
       <expensesContext.Provider value={{ expenses, setExpenses }}>
         <Expenses />
       </expensesContext.Provider>

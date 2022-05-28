@@ -1,7 +1,7 @@
 .expense-item {
   display: flex;
   align-items: center;
-  background-color: cornsilk;
+  background-color: white;
   justify-content: space-between;
   margin: 1rem .25rem;
 }
@@ -12,8 +12,7 @@
   width: 70px;
   min-width: 70px;
   justify-content: center;
-  background-color: lightgrey;
-  border: solid white 3px;
+  background-color: gainsboro;
   border-radius: 8px;
 }
 
@@ -21,16 +20,21 @@
 .expense-item__amount {
   font-size: large;
   width: 70px;
-  padding: 0.25rem 1rem;
+  padding: 0.5rem 1rem;
   margin: 1rem;
 }
 
-button, input {
+.title-input {
   font-size: medium;
+  border-radius: 6px;
+  padding: .25rem;
 }
 
-button {
-  background-color: powderblue;
+.expense-item-button {
+  background-color: cornsilk;
+  font-size: large;
+  border-radius: 8px;
+  padding: .4rem .8rem;
 }
 
 .expense-item__month,
