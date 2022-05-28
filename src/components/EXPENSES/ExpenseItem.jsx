@@ -6,34 +6,31 @@ import { expensesContext } from '../../App';
 
 function ExpenseItem(props) {
   const { expenses, setExpenses } = useContext(expensesContext);
-  const [expenseItem, setExpenseItem] = useState(props.expense);
   const inputRef = useRef();
 
   function clickHandler(ev) {
-    if(inputRef.current.value){
+    if (inputRef.current.value) {
       for (let i = 0; i < expenses.length; i++) {
-        if (expenses[i].id === expenseItem.id) {
+        if (expenses[i].id === props.expense.id) {
           expenses[i].title = inputRef.current.value;
         }
         props.onEditTitle(expenses);
       }
-      const name = inputRef.current.value;
-      setExpenseItem(() => {
-        return { ...expenseItem, title: name };
-      });
       inputRef.current.value = '';
     }
   }
 
   return (
     <Card className="expense-item">
-      <ExpenseItemDate date={expenseItem.date} />
+      <ExpenseItemDate date={props.expense.date} />
       <div className="expense-item__title">
-        <p className='expense-item-p'>{expenseItem.title}</p>
-        </div>
+        <p className="expense-item-p">{props.expense.title}</p>
+      </div>
       <input ref={inputRef} className="title-input"></input>
-      <button className='expense-item-button' onClick={clickHandler}>rename</button>
-      <div className="expense-item__amount">${expenseItem.amount}</div>
+      <button className="expense-item-button" onClick={clickHandler}>
+        rename
+      </button>
+      <div className="expense-item__amount">${props.expense.amount}</div>
     </Card>
   );
 }

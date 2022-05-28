@@ -8,8 +8,6 @@ function ExpenseItemDate(props) {
   const year = props.date.toLocaleString('en-US', {year: 'numeric'});
   const classes = 'expense-item__date ' + month;
 
-  console.log('month: ', month)
-
   return (
     <div className={classes}>
       <div className="expense-item__month">{month}</div>

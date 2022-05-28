@@ -11,30 +11,32 @@ function Expenses() {
   const [year, setYear] = useState(2021);
   const { expenses, setExpenses } = useContext(expensesContext);
 
-  function onEditTitle(arr){
+  function onEditTitle(arr) {
     setExpenses([...arr]);
   }
 
-  function getYearHandler(year){
-    setYear(year)
-    console.log(year)
+  function getYearHandler(year) {
+    setYear(year);
   }
 
   return (
     <div>
       <Card className="expenses">
-      <NewExpense />
-      <ExpenseItemFilter select={year} getYear = {getYearHandler} year={year} />
-      <div>
-        {expenses.map((expense, idx) => {
-          return (
-            <li key={expense.id}>
-              <ExpenseItem onEditTitle={onEditTitle} expense={expenses[idx]} />
-            </li>
-          );
-        })}
-      </div>
-    </Card>
+        <NewExpense />
+        <ExpenseItemFilter getYear={getYearHandler} year={year} />
+        <div>
+          {expenses.map((expense, idx) => {
+            return (
+              <li key={expense.id}>
+                <ExpenseItem
+                  onEditTitle={onEditTitle}
+                  expense={expenses[idx]}
+                />
+              </li>
+            );
+          })}
+        </div>
+      </Card>
     </div>
   );
 }

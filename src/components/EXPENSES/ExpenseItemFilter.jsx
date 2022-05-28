@@ -6,10 +6,9 @@ export const yearContext = createContext();
 
 
 function ExpenseItemFilter(props) {
-  console.log(props.select)
-  let year;
+
   function yearHandler(ev) {
-    year = props.getYear(ev.target.value);
+    props.getYear(ev.target.value);
   }
 
   return (
