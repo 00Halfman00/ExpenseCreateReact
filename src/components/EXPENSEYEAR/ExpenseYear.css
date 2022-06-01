@@ -33,6 +33,7 @@ p {
   margin: 1rem 0;
   padding: 1rem .25rem .25rem .25rem;
   font-size: large;
+  box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
 }
 
 .spring {
@@ -40,6 +41,7 @@ p {
   margin: 1rem 0;
   padding: 1rem .25rem .25rem .25rem;
   font-size: large;
+  box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
 }
 
 .summer {
@@ -47,6 +49,7 @@ p {
   margin: 1rem 0;
   padding: 1rem .25rem .25rem .25rem;
   font-size: large;
+  box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
 }
 
 .fall {
@@ -54,6 +57,7 @@ p {
   margin: 1rem 0;
   padding: 1rem .25rem .25rem .25rem;
   font-size: large;
+  box-shadow: 0 0.1px 18px rgba(0, 0, 0, 1);
 }
 
 .filter-year-button-div {

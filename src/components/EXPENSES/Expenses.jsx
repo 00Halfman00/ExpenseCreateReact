@@ -8,8 +8,7 @@ import { expensesContext } from '../../App';
 import ExpenseItemFilter from './ExpenseItemFilter';
 
 function Expenses() {
-  const [year, setYear] = useState(2021);
-  const { expenses, setExpenses } = useContext(expensesContext);
+  const { year, setYear, expenses, setExpenses } = useContext(expensesContext);
 
   function onEditTitle(arr) {
     setExpenses([...arr]);
@@ -19,13 +18,35 @@ function Expenses() {
     setYear(year);
   }
 
+  const listExpenses = (
+    <div>
+      {expenses.map((expense, idx) => {
+        if (expense.date.getFullYear() === year) {
+          return (
+            <li key={expense.id}>
+              <ExpenseItem onEditTitle={onEditTitle} expense={expenses[idx]} />
+            </li>
+          );
+        }
+      })}
+    </div>
+  );
+
   return (
     <div>
       <Card className="expenses">
         <NewExpense />
-        <ExpenseItemFilter getYear={getYearHandler} year={year} />
-        <div>
-          {expenses.map((expense, idx) => {
+        <ExpenseItemFilter />
+        {year ? listExpenses : null}
+      </Card>
+    </div>
+  );
+}
+
+export default Expenses;
+
+/*
+{expenses.map((expense, idx) => {
             return (
               <li key={expense.id}>
                 <ExpenseItem
@@ -35,10 +56,4 @@ function Expenses() {
               </li>
             );
           })}
-        </div>
-      </Card>
-    </div>
-  );
-}
-
-export default Expenses;
+          */

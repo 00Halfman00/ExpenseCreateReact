@@ -4,6 +4,7 @@ import './App.css';
 
 export const expensesContext = createContext();
 
+
 const expensesArr = [
   {
     id: 'e1',
@@ -26,15 +27,33 @@ const expensesArr = [
   },
 ];
 
+
 function App() {
   const [expenses, setExpenses] = useState(expensesArr);
+  const [year, setYear] = useState();
+  const obj = {
+    1: 0,
+    2: 0,
+    3: 0,
+    4: 0,
+    5: 0,
+    6: 0,
+    7: 0,
+    8: 0,
+    9: 0,
+    10: 0,
+    11: 0,
+    12: 0,
+  };
+
+  const [months, setMonths] = useState(obj);
   console.log('In App.jsx: ', expenses)
   return (
     <div>
       <div className="title-div">
         <h1>Expense Tracker</h1>
       </div>
-      <expensesContext.Provider value={{ expenses, setExpenses }}>
+      <expensesContext.Provider value={{ expenses, setExpenses, months, setMonths, year, setYear}}>
         <Expenses />
       </expensesContext.Provider>
     </div>

@@ -1,51 +1,13 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { expensesContext } from '../../App';
 import './ExpenseYear.css';
 
-function ExpenseYear(props) {
-  const { expenses } = useContext(expensesContext);
-  const [months, setMonths] = useState({});
-
-  const obj = {
-    1: 0,
-    2: 0,
-    3: 0,
-    4: 0,
-    5: 0,
-    6: 0,
-    7: 0,
-    8: 0,
-    9: 0,
-    10: 0,
-    11: 0,
-    12: 0,
-  };
-
-  for (let idx = 0; idx < expenses.length; ++idx) {
-    if (
-      props.year ===
-      expenses[idx].date.toLocaleString('en-Us', { year: 'numeric' })
-    ) {
-      obj[
-        expenses[idx].date.toLocaleString('en-Us', { month: 'numeric' })
-      ] += 1;
-    }
-  }
-
-  function monthsHandler() {
-    setMonths(obj);
-  }
-
-  //console.log(months);
+function ExpenseYear() {
+  const { months } = useContext(expensesContext);
 
   return (
     <div>
-      <div className="filter-year-button-div">
-        <button className="filter-year-button" onClick={monthsHandler}>
-          display {props.year}
-        </button>
-      </div>
-      <div className='filter-year-container'>
+      <div className="filter-year-container">
         <div className="filter-year-div">
           <div className="winter">
             {months['1']}

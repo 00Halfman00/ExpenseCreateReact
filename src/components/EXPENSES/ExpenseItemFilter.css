@@ -36,10 +36,16 @@ label, select {
 
 .filter-select {
   border-radius: 6px;
+  margin: .25rem 1rem;
+  padding: .25rem;
 }
 
 @media screen and (max-width: 700px) {
   .expense-filter-div {
     flex-direction: column;
+    justify-content: center;
+  }
+  .expense-filter-label, .filter-select {
+    margin: .5rem 0
   }
 }
